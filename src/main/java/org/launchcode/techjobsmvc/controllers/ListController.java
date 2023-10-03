@@ -22,12 +22,18 @@ public class ListController {
     static HashMap<String, Object> tableChoices = new HashMap<>();
 
     public ListController () {
+        //populating a Hashmap of Strings with all possible column choices
+        //key is internal use name and value is external (user facing) name.
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
         columnChoices.put("positionType", "Position Type");
         columnChoices.put("coreCompetency", "Skill");
 
+        //what does table choices do?
+        //populates a HashMap with String keys and Object values
+        // i.e. employer is the key and value is all possible employers
+        tableChoices.put("all", JobData.findAll());
         tableChoices.put("employer", JobData.getAllEmployers());
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());
